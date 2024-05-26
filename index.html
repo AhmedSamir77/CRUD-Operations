@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="w-75 bg-light mx-auto p-5">
+        <h1>Product Management System</h1>
+
+        <div class="mb-3">
+          <label for="productName" class="form-label">Product Name</label>
+          <input
+            type="text"
+            name="productName"
+            id="productName"
+            class="form-control"
+            oninput="validateProductName()"
+          />
+          <small id="nameError" class="text-danger d-none"
+            >product name must start with capital letter</small
+          >
+        </div>
+
+        <div class="mb-3">
+          <label for="productPrice" class="form-label">Product Price</label>
+          <input
+            type="number"
+            name="productPrice"
+            id="productPrice"
+            class="form-control"
+            oninput="validateProductPrice()"
+          />
+          <small id="priceError" class="text-danger d-none"
+            >product price must be between 1000 and 100,000</small
+          >
+        </div>
+
+        <div class="mb-3">
+          <label for="productCat" class="form-label">Product Category</label>
+          <input
+            type="text"
+            name="productCat"
+            id="productCat"
+            class="form-control"
+            oninput="validateProductCategory()"
+          />
+          <small id="catError" class="text-danger d-none"
+            >unknown category</small
+          >
+        </div>
+
+        <div class="mb-3">
+          <label for="productDesc" class="form-label"
+            >Product Description</label
+          >
+          <textarea
+            name="productDesc"
+            id="productDesc"
+            class="form-control"
+            cols="30"
+            rows="6"
+            oninput="validateProductDesc()"
+          ></textarea>
+          <small id="descError" class="text-danger d-none"
+            >description must be at least 200 character</small
+          >
+        </div>
+
+        <button class="btn btn-success" id="addBtn" onclick="createProduct()">
+          ADD PRODUCT
+        </button>
+
+        <button
+          class="btn btn-warning d-none"
+          onclick="updateProduct()"
+          id="updateBtn"
+        >
+          UPDATE PRODUCT
+        </button>
+      </div>
+
+      <div class="w-75 mx-auto my-5">
+        <h4>Search..</h4>
+        <input type="text" class="form-control" oninput="search(this.value)" />
+      </div>
+
+      <table class="table w-75 mx-auto">
+        <thead>
+          <tr>
+            <th>index</th>
+            <th>ProductName</th>
+            <th>ProductPrice</th>
+            <th>ProductCategory</th>
+            <th>ProductDescription</th>
+            <th>Update</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+
+        <tbody id="data"></tbody>
+      </table>
+    </div>
+
+  
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
